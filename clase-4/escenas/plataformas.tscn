@@ -1,0 +1,196 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/plataformas.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://escenas/jugador.tscn" id="2_jugador"]
+[ext_resource type="PackedScene" path="res://escenas/fruta.tscn" id="3_fruta"]
+[ext_resource type="Texture2D" path="res://assets/fondo/capa0_cielo.png" id="4_cielo"]
+[ext_resource type="Texture2D" path="res://assets/fondo/capa1_montanas_lejos.png" id="5_lejos"]
+[ext_resource type="Texture2D" path="res://assets/fondo/capa2_montanas_medio.png" id="6_medio"]
+[ext_resource type="Texture2D" path="res://assets/fondo/capa3_arboles.png" id="7_arboles"]
+[ext_resource type="Texture2D" path="res://assets/fondo/piso.png" id="8_piso"]
+[ext_resource type="Texture2D" path="res://assets/fondo/plataforma.png" id="9_plataforma"]
+[ext_resource type="AudioStream" path="res://assets/audio/juntar.wav" id="10_juntar"]
+[ext_resource type="AudioStream" path="res://assets/audio/musica.wav" id="11_musica"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piso"]
+size = Vector2(320, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plataforma"]
+size = Vector2(48, 8)
+
+[node name="plataformas" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Parallax0Cielo" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(384, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax0Cielo"]
+texture = ExtResource("4_cielo")
+centered = false
+
+[node name="Parallax1Lejos" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(384, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax1Lejos"]
+texture = ExtResource("5_lejos")
+centered = false
+
+[node name="Parallax2Medio" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(384, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2Medio"]
+texture = ExtResource("6_medio")
+centered = false
+
+[node name="Parallax3Arboles" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.75, 1)
+repeat_size = Vector2(384, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax3Arboles"]
+texture = ExtResource("7_arboles")
+centered = false
+
+[node name="piso" type="StaticBody2D" parent="."]
+position = Vector2(0, 184)
+
+[node name="Sprite2D" type="Sprite2D" parent="piso"]
+texture = ExtResource("8_piso")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso"]
+position = Vector2(160, 16)
+shape = SubResource("RectangleShape2D_piso")
+
+[node name="piso2" type="StaticBody2D" parent="."]
+position = Vector2(384, 184)
+
+[node name="Sprite2D" type="Sprite2D" parent="piso2"]
+texture = ExtResource("8_piso")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso2"]
+position = Vector2(160, 16)
+shape = SubResource("RectangleShape2D_piso")
+
+[node name="piso3" type="StaticBody2D" parent="."]
+position = Vector2(768, 184)
+
+[node name="Sprite2D" type="Sprite2D" parent="piso3"]
+texture = ExtResource("8_piso")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso3"]
+position = Vector2(160, 16)
+shape = SubResource("RectangleShape2D_piso")
+
+[node name="plataforma" type="StaticBody2D" parent="."]
+position = Vector2(328, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma"]
+texture = ExtResource("9_plataforma")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+position = Vector2(24, 6)
+shape = SubResource("RectangleShape2D_plataforma")
+
+[node name="plataforma2" type="StaticBody2D" parent="."]
+position = Vector2(520, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma2"]
+texture = ExtResource("9_plataforma")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma2"]
+position = Vector2(24, 6)
+shape = SubResource("RectangleShape2D_plataforma")
+
+[node name="plataforma3" type="StaticBody2D" parent="."]
+position = Vector2(712, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma3"]
+texture = ExtResource("9_plataforma")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma3"]
+position = Vector2(24, 6)
+shape = SubResource("RectangleShape2D_plataforma")
+
+[node name="plataforma4" type="StaticBody2D" parent="."]
+position = Vector2(900, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma4"]
+texture = ExtResource("9_plataforma")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma4"]
+position = Vector2(24, 6)
+shape = SubResource("RectangleShape2D_plataforma")
+
+[node name="jugador" parent="." instance=ExtResource("2_jugador")]
+position = Vector2(40, 168)
+
+[node name="Fruta" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(180, 172)
+
+[node name="Fruta2" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(352, 126)
+
+[node name="Fruta3" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(544, 122)
+
+[node name="Fruta4" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(620, 172)
+
+[node name="Fruta5" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(736, 126)
+
+[node name="Fruta6" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(924, 122)
+
+[node name="Fruta7" parent="." instance=ExtResource("3_fruta")]
+position = Vector2(1040, 172)
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="SonidoJuntar" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("10_juntar")
+volume_db = -4.0
+bus = &"FX"
+
+[node name="Musica" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("11_musica")
+volume_db = -12.0
+autoplay = true
+bus = &"Music"
+
+[node name="Lluvia" type="CPUParticles2D" parent="."]
+position = Vector2(544, -10)
+amount = 250
+lifetime = 1.5
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 600)
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+color = Color(0.75, 0.85, 1, 0.6)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PuntajeLabel" type="Label" parent="UI"]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 120.0
+offset_bottom = 27.0
+text = "Puntos: 0"

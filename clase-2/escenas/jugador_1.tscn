@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://xc6mhnchceak"]
+
+[ext_resource type="Texture2D" uid="uid://bot4ieeaqrjoa" path="res://assets/personaje/Idle.png" id="1_07u3f"]
+[ext_resource type="Script" uid="uid://cchud8v5htdcc" path="res://scripts/jugador_1.gd" id="2_b4qu8"]
+
+[node name="jugador_1" type="Sprite2D" unique_id=236592017]
+texture = ExtResource("1_07u3f")
+hframes = 4
+script = ExtResource("2_b4qu8")

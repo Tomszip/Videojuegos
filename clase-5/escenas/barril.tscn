@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/tiles/Tiles/tile_0130.png" id="1_textura"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barril"]
+size = Vector2(12, 8)
+
+[node name="barril" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_textura")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_barril")

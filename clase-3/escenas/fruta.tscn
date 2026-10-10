@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cgmifl3b1u2y2"]
+
+[ext_resource type="Script" uid="uid://khn0odkqwup2" path="res://scripts/fruta.gd" id="1_dxmkn"]
+[ext_resource type="Texture2D" uid="uid://kl763jlc3io4" path="res://assets/tiles/Tiles/tile_0093.png" id="1_rysb5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3q228"]
+radius = 6.0
+
+[node name="Fruta" type="Area2D" unique_id=1954360665 groups=["frutas"]]
+script = ExtResource("1_dxmkn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=863348291]
+texture = ExtResource("1_rysb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1548532288]
+shape = SubResource("CircleShape2D_3q228")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
